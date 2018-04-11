@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_06"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/ehcache/ehcache-2.10.0.jar"/>
+	<classpathentry kind="lib" path="lib/ehcache/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="lib/ehcache/slf4j-jdk14-1.7.5.jar"/>
+	<classpathentry kind="lib" path="lib/compress/ant-1.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/compress/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="lib/compress/java-unrar-0.3.jar"/>
+	<classpathentry kind="lib" path="lib/compress/commons-io-2.4.jar" sourcepath="E:/must-backup/lib/jar-manager/project/importent-tools/src/commons-io-sources-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/dwr/dwr-2.0.10.jar"/>
+	<classpathentry kind="lib" path="lib/email/mail-1.4.7.jar"/>
+	<classpathentry kind="lib" path="lib/excel/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/reflect/ognl-3.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/ftp/ftp4j-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/ftp/jsch-0.1.48.jar"/>
+	<classpathentry kind="lib" path="lib/http/commons-codec.jar"/>
+	<classpathentry kind="lib" path="lib/http/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/http/httpclient-4.5.jar"/>
+	<classpathentry kind="lib" path="lib/http/httpmime-4.1.3.jar"/>
+	<classpathentry kind="lib" path="lib/http/httpmime-4.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/xml/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/xml/xstream-1.3.1.jar" sourcepath="E:/must-backup/lib/jar-manager/depend/xml/xstream-1.3.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/ifxjdbc.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/mysql-5.1.26.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/sqljdbc-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/_json/fastjson-1.1.24.jar" sourcepath="E:/must-backup/lib/jar-manager/depend/json/fastjson-1.1.24-sources.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/cxf-2.6.10.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/geronimo-servlet_2.5_spec-1.1.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/jetty-continuation-7.5.4.v20111024.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/jetty-http-7.5.4.v20111024.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/jetty-io-7.5.4.v20111024.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/jetty-security-7.5.4.v20111024.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/jetty-server-7.5.4.v20111024.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/jetty-util-7.5.4.v20111024.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/neethi-3.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/stax2-api-3.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/woodstox-core-asl-4.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/wsdl4j-1.6.3.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf2.6.10/xmlschema-core-2.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/memory/sigar.jar"/>
+	<classpathentry kind="lib" path="lib/bar/core-2.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/bar/jbarcode-0.2.8.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="lib/pdf/iText-5.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/pdf/iTextAsian.jar"/>
+	<classpathentry kind="lib" path="lib/proxy/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="otherlib/jai_codec.jar"/>
+	<classpathentry kind="lib" path="otherlib/jai_core.jar"/>
+	<classpathentry kind="lib" path="lib/reflect/javassist-3.11.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/freemarker/freemarker-2.3.23.jar" sourcepath="E:/must-backup/lib/jar-manager/depend/freemarker/freemarker-2.3.23-sources.jar"/>
+	<classpathentry kind="lib" path="lib/exec/spring-beans-3.2.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/exec/spring-core-3.2.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/json/json-lib-2.3-jdk15.jar"/>
+	<classpathentry kind="lib" path="lib/json/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/curvesapi-1.03.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/poi-3.14-20160307.jar" sourcepath="E:/BaiduYunDownload/poi/poi-src-3.14/poi-3.14"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/poi-examples-3.14-20160307.jar" sourcepath="E:/BaiduYunDownload/poi/poi-src-3.14/poi-3.14"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/poi-excelant-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/poi-ooxml-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/poi-ooxml-schemas-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/poi-scratchpad-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.14/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

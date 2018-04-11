@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="{mybatisNamespace=mybatis命名空间}">
+	<!-- ******************************自定义代码****************************************** -->
+	<!-- 当前对象查询条件(单表) -->
+	<sql id="thisWhereCondtion">
+		<if test="id!=null and id!=''">
+			and ID=#{id}
+		</if>
+		<if test="isDelete!=null and isDelete!=''">
+			and IS_DELETE=#{isDelete}
+		</if>
+		<if test="createdUser!=null and createdUser!=''">
+			and CREATED_USER=#{createdUser}
+		</if>
+		<if test="modifiedUser!=null and modifiedUser!=''">
+			and MODIFIED_USER=#{modifiedUser}
+		</if>
+		<if test="createdDateStart != null">
+			<![CDATA[ and CREATED_DATE >= #{createdDateStart,jdbcType=TIMESTAMP}]]>
+		</if>
+		<if test="createdDateEnd != null">
+			<![CDATA[ and CREATED_DATE <= #{createdDateEnd,jdbcType=TIMESTAMP}]]>
+		</if>
+		<if test="modifiedDateStart != null">
+			<![CDATA[ and MODIFIED_DATE >= #{modifiedDateStart,jdbcType=TIMESTAMP}]]>
+		</if>
+		<if test="modifiedDateEnd != null">
+			<![CDATA[ and MODIFIED_DATE <= #{modifiedDateEnd,jdbcType=TIMESTAMP}]]>
+		</if>
+		<if test="createdIp!=null and createdIp!=''">
+			and CREATED_IP=#{createdIp}
+		</if>
+		<if test="modifiedIp!=null and modifiedIp!=''">
+			and MODIFIED_IP=#{modifiedIp}
+		</if>
+		<if test="sqlWhere!=null and sqlWhere!=''">
+			${sqlWhere}
+		</if>
+	</sql>
+	<!-- 查询结果集或分页 -->
+	<select id="selectByMap" resultMap="BaseResultMap" parameterType="map">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM {tableName=表名}
+		<where>
+			<include refid="thisWhereCondtion" />
+		</where>
+		<!-- 替换where后面的sql语句 -->
+		<if test="sqlWhereAfter!=null and sqlWhereAfter!=''">
+			${sqlWhereAfter}
+		</if>
+		<!-- 排序 -->
+		<if test="sort!=null and sort!=''">
+			order by ${sort}
+			<choose>
+				<when test="order!=null and order!=''">
+					${order}
+				</when>
+				<otherwise>asc</otherwise>
+			</choose>
+		</if>
+		<!-- 分页 -->
+		<if test="startno!=null  and pagesize!=null and !noPage">
+			limit #{startno},#{pagesize}
+		</if>
+	</select>
+	<!-- 获取总条数 -->
+	<select id="getCountByMap" resultType="int" parameterType="map">
+		SELECT
+		COUNT(ID)
+		FROM {tableName=表名}
+		<where>
+			<include refid="thisWhereCondtion" />
+		</where>
+		<!-- 替换where后面的sql语句 -->
+		<if test="sqlWhereAfter!=null and sqlWhereAfter!=''">
+			${sqlWhereAfter}
+		</if>
+	</select>
+	<!-- 根据多主键逻辑删除 -->
+	<update id="updateByMap" parameterType="map">
+		update {tableName=表名} set IS_DELETE=#{isDelete}
+		WHERE ID IN
+		<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<!-- ******************************基础代码信息****************************************** -->
+	<!-- 表中所有列对应java对象属性 -->
+	<resultMap id="BaseResultMap" type="{entity=实体类全路径}">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="IS_DELETE" property="isDelete" jdbcType="CHAR" />
+		<result column="CREATED_DATE" property="createdDate" jdbcType="TIMESTAMP" />
+		<result column="MODIFIED_USER" property="modifiedUser" jdbcType="VARCHAR" />
+		<result column="MODIFIED_DATE" property="modifiedDate" jdbcType="TIMESTAMP" />
+		<result column="CREATED_USER" property="createdUser" jdbcType="VARCHAR" />
+		<result column="CREATED_IP" property="createdIp" jdbcType="VARCHAR" />
+		<result column="MODIFIED_IP" property="modifiedIp" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 表中所有列 -->
+	<sql id="Base_Column_List">
+		ID, IS_DELETE,CREATED_DATE, MODIFIED_USER, MODIFIED_DATE, CREATED_USER, CREATED_IP, MODIFIED_IP
+	</sql>
+	<!-- 根据主键查询实体类 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from {tableName=表名}
+		where ID = #{id,jdbcType=VARCHAR}
+	</select>
+	<!-- 根据主键删除实体类 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from {tableName=表名}
+		where ID = #{id,jdbcType=VARCHAR}
+	</delete>
+	<!-- 插入实体类 -->
+	<insert id="insert" parameterType="{entity=实体类全路径}">
+		insert into {tableName=表名} (ID, IS_DELETE, CREATED_DATE,MODIFIED_USER, MODIFIED_DATE,CREATED_USER,CREATED_IP, MODIFIED_IP)
+		values (#{id,jdbcType=VARCHAR}, #{isDelete,jdbcType=CHAR}, #{createdDate,jdbcType=TIMESTAMP},
+		#{modifiedUser,jdbcType=VARCHAR}, #{modifiedDate,jdbcType=TIMESTAMP}, #{createdUser,jdbcType=VARCHAR},
+		#{createdIp,jdbcType=VARCHAR}, #{modifiedIp,jdbcType=VARCHAR})
+	</insert>
+	<!-- 选择性插入实体类 -->
+	<insert id="insertSelective" parameterType="{entity=实体类全路径}">
+		insert into {tableName=表名}
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="isDelete != null">
+				IS_DELETE,
+			</if>
+			<if test="createdDate != null">
+				CREATED_DATE,
+			</if>
+			<if test="modifiedUser != null">
+				MODIFIED_USER,
+			</if>
+			<if test="modifiedDate != null">
+				MODIFIED_DATE,
+			</if>
+			<if test="createdUser != null">
+				CREATED_USER,
+			</if>
+			<if test="createdIp != null">
+				CREATED_IP,
+			</if>
+			<if test="modifiedIp != null">
+				MODIFIED_IP,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="isDelete != null">
+				#{isDelete,jdbcType=CHAR},
+			</if>
+			<if test="createdDate != null">
+				#{createdDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifiedUser != null">
+				#{modifiedUser,jdbcType=VARCHAR},
+			</if>
+			<if test="modifiedDate != null">
+				#{modifiedDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createdUser != null">
+				#{createdUser,jdbcType=VARCHAR},
+			</if>
+			<if test="createdIp != null">
+				#{createdIp,jdbcType=VARCHAR},
+			</if>
+			<if test="modifiedIp != null">
+				#{modifiedIp,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<!-- 根据主键选择性更新实体类 -->
+	<update id="updateByPrimaryKeySelective" parameterType="{entity=实体类全路径}">
+		update {tableName=表名}
+		<set>
+			<if test="isDelete != null">
+				IS_DELETE = #{isDelete,jdbcType=CHAR},
+			</if>
+			<if test="createdDate != null">
+				CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifiedUser != null">
+				MODIFIED_USER = #{modifiedUser,jdbcType=VARCHAR},
+			</if>
+			<if test="modifiedDate != null">
+				MODIFIED_DATE = #{modifiedDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createdUser != null">
+				CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+			</if>
+			<if test="createdIp != null">
+				CREATED_IP = #{createdIp,jdbcType=VARCHAR},
+			</if>
+			<if test="modifiedIp != null">
+				MODIFIED_IP = #{modifiedIp,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
+	<!-- 根据主键更新实体类 -->
+	<update id="updateByPrimaryKey" parameterType="{entity=实体类全路径}">
+		update {tableName=表名}
+		set IS_DELETE = #{isDelete,jdbcType=CHAR},
+		CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP},
+		MODIFIED_USER = #{modifiedUser,jdbcType=VARCHAR},
+		MODIFIED_DATE = #{modifiedDate,jdbcType=TIMESTAMP},
+		CREATED_USER = #{createdUser,jdbcType=VARCHAR},
+		CREATED_IP = #{createdIp,jdbcType=VARCHAR},
+		MODIFIED_IP = #{modifiedIp,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
+</mapper>

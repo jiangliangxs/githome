@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<!-- 
+	  %m   输出代码中指定的消息
+	log4j配置详解 - stone - stonexmx 的博客　　%p   输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL 
+	log4j配置详解 - stone - stonexmx 的博客　　%r   输出自应用启动到输出该log信息耗费的毫秒数 
+	log4j配置详解 - stone - stonexmx 的博客　　%c   输出所属的类目，通常就是所在类的全名 
+	log4j配置详解 - stone - stonexmx 的博客　　%t   输出产生该日志事件的线程名 
+	log4j配置详解 - stone - stonexmx 的博客　　%n   输出一个回车换行符，Windows平台为“\r\n”，Unix平台为“\n” 
+	log4j配置详解 - stone - stonexmx 的博客　　%d   输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss , SSS}，输出类似：2002年10月18日  22 ： 10 ： 28 ， 921  
+	log4j配置详解 - stone - stonexmx 的博客　　%l   输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java: 10 ) log4j配置详解 - stone - stonexmx 的博客
+	 -->
+	<!-- 输出到控制台 -->
+	<appender name="logs.console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别 -->
+		<!-- <filter class="org.apache.log4j.varia.LevelRangeFilter"> <param name="levelMin" value="debug" /> <param name="levelMax" value="warn" /> <param name="AcceptOnMatch" value="true" /> </filter> -->
+		<!-- 控制台只输出debug,level元素不用配置
+		<logger name="v1" additivity="false">
+			<appender-ref ref="logs.console" />
+			<appender-ref ref="logsFile" />
+		</logger>
+		 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="debug" />
+			<param name="levelMax" value="debug" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- 输出日志到文件 每天一个文件 -->
+	<appender name="debug.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 首字母大小写不区分 -->
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_debug.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true"/>  
+		<!-- 当日志文件大于500k时，自动备份，形式为server.log.1 -->
+		<param name="MaxFileSize" value="500KB"/>
+		<!-- 当server.log.*文件超过5个时，删除最老的一个 -->
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param> -->
+			<!-- -5p表示多少个空格 -->
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别,不设置则输出所有级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<!-- 此配置不用考虑调用者配置,输出最小->最大级别日志到文件中 -->
+			<param name="levelMin" value="debug" />
+			<param name="levelMax" value="debug" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- 输出日志到文件 每天一个文件 -->
+	<appender name="info.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 首字母大小写不区分 -->
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_info.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true"/>  
+		<!-- 当日志文件大于500k时，自动备份，形式为server.log.1 -->
+		<param name="MaxFileSize" value="500KB"/>
+		<!-- 当server.log.*文件超过5个时，删除最老的一个 -->
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param> -->
+			<!-- -5p表示多少个空格 -->
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别,不设置则输出所有级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info" />
+			<param name="levelMax" value="info" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- 输出日志到文件 每天一个文件 -->
+	<appender name="warn.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 首字母大小写不区分 -->
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_warn.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true"/>  
+		<!-- 当日志文件大于500k时，自动备份，形式为server.log.1 -->
+		<param name="MaxFileSize" value="500KB"/>
+		<!-- 当server.log.*文件超过5个时，删除最老的一个 -->
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param> -->
+			<!-- -5p表示多少个空格 -->
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别,不设置则输出所有级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="warn" />
+			<param name="levelMax" value="warn" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- 输出日志到文件 每天一个文件 -->
+	<appender name="error.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 首字母大小写不区分 -->
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_error.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true"/>  
+		<!-- 当日志文件大于500k时，自动备份，形式为server.log.1 -->
+		<param name="MaxFileSize" value="500KB"/>
+		<!-- 当server.log.*文件超过5个时，删除最老的一个 -->
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param> -->
+			<!-- -5p表示多少个空格 -->
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别,不设置则输出所有级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="error" />
+			<param name="levelMax" value="error" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- 输出日志到文件 每天一个文件 -->
+	<appender name="fatal.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- 首字母大小写不区分 -->
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_fatal.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true"/>  
+		<!-- 当日志文件大于500k时，自动备份，形式为server.log.1 -->
+		<param name="MaxFileSize" value="500KB"/>
+		<!-- 当server.log.*文件超过5个时，删除最老的一个 -->
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param> -->
+			<!-- -5p表示多少个空格 -->
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别,不设置则输出所有级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="fatal" />
+			<param name="levelMax" value="fatal" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- *********************************************************************** -->
+	<!-- 输出到文件 -->
+	<appender name="logsFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy"> <param name="FileNamePattern" value="C:/log/test/logs_%d{yyyyMMdd}.log" /> </rollingPolicy> -->
+		<param name="file" value="C:/log/test/logs.log" />
+		<!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="true"/>  
+		<!-- MaxFileSize=100KB: 后缀可以是KB, MB 或者是 GB. 在日志文件到达该大小时，将会自动滚动，即将原来的内容移到mylog.log.1文件 -->
+		<!-- 当日志文件大于500k时，自动备份，形式为server.log.1 -->
+		<param name="MaxFileSize" value="500KB"/>
+		<!-- 当server.log.*文件超过5个时，删除最老的一个 -->
+		<param name="MaxBackupIndex" value="5"/>
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<!--过滤器设置输出的级别,不设置则输出所有级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="error" />
+			<param name="levelMax" value="fatal" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<!-- *********************************************************************** -->
+	<!--指定包/类的日志级别,用于当前类的log4j -->
+	<!-- 指定包/类的日志级别,用于当前类的log4j System.setProperty("ddd", "v2");<logger name="${ddd}" additivity="false"> -->
+	<!--additivity="false",防止子类信息在父类中多次输出日志信息
+	总结:加上log4j.additivity.com.toogen.log4j=false后,log4j.rootLogger对com.toogen.log4j的类失效,完全由com.toogen.log4j自己  
+定义的appender控制,具体说，默认情况下子Logger会继承父Logger的appender。若是additivity设为false，则子Logger只会在自己的appender里输出，而不会在父Logger的appender里输出。   
+它是 子Logger 是否继承 父Logger 的 输出源（appender） 的标志位。具体说，默认情况下子Logger会继承父Logger的appender，也就是说子Logger会在父Logger的appender里输出。若是additivity设为false，则子Logger只会在自己的appender里输出，而不会在父Logger的appender里输出
+但无论log4j.additivity.DemoLog4jAdditivity=false是否配置，两种方式的运行后，logger的日志信息都会输出到文件property.log 中，也就是子输出不会变化，屏蔽的只是父类。
+ 在log4j 的配置文件中，子Logger 的输出源默认会继承父类的输出源appender，就是子Logger即在自己的输出源中输出，也会在父类的配置输出源中输出。但若只想在子类自己的输出源中输出，不在父类的输出源中输出，就需要设置additivity为false。
+	com.pa.pb.T.m();
+	输出结果则是输出两遍,因为com.pa继承com
+	<logger name="com" additivity="false">
+		<appender-ref ref="logs.console" />
+		<appender-ref ref="logsFile" />
+	</logger>
+	<logger name="com.pa" additivity="true">
+		<appender-ref ref="logs.console" />
+		<appender-ref ref="logsFile" />
+	</logger>
+	-->
+	<logger name="v1" additivity="false">
+		<!-- 使用过虑配置,覆盖root -->
+		<level value="error" />
+		<appender-ref ref="logs.console" />
+		<appender-ref ref="debug.log.day.file" />
+		<appender-ref ref="info.log.day.file" />
+		<appender-ref ref="warn.log.day.file" />
+		<appender-ref ref="error.log.day.file" />
+		<appender-ref ref="fatal.log.day.file" />
+	</logger>
+	<!--指定包/类的日志级别,用于当前类的log4j -->
+	<logger name="v2" additivity="false">
+		<!-- 使用过虑配置,覆盖root,针对v2包 -->
+		<level value="error" />
+		<appender-ref ref="logs.console" />
+		<appender-ref ref="debug.log.day.file" />
+		<appender-ref ref="info.log.day.file" />
+		<appender-ref ref="warn.log.day.file" />
+		<appender-ref ref="error.log.day.file" />
+		<appender-ref ref="fatal.log.day.file" />
+	</logger>
+	<!--其它类的日志级别 -->
+	<root>
+		<!-- 级别项(旧)<priority value=""></priority> -->
+		<!-- 级别项(新) -->
+		<level value="info" />
+		<!-- 配置其它信息输出到控制台 -->
+		<appender-ref ref="logs.console" />
+	</root>
+</log4j:configuration>

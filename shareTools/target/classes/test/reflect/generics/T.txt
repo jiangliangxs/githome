@@ -1,0 +1,421 @@
+Info<? extends 类型>泛型上限
+Info<? super 类型>泛型下限
+
+
+
+public static <T> void sort(T[] a, Comparator<? super T> c)
+谁给个解说下，以为没见过这类写法
+谢谢`~或者说下这种写法是那类型知识也可以~~
+我来帮他解答
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+2009-4-12 18:32
+满意回答
+
+Jdk5.0新特性Generic Types （泛型）
+2007-04-27 PChome.net 类型: 转载 来源: 中国IT实验室 作者: 未知 责编: 宝良 
+
+1. 介绍
+
+2.定义简单Java泛型
+
+  其实Java的泛型就是创建一个用类型作为参数的类。就象我们写类的方法一样，方法是这样的method(String str1,String str2 ),方法中参数str1、str2的值是可变的。而泛型也是一样的，这样写class Java_Generics<K,V>，这里边的K和V就象方法中的参数str1和str2,也是可变。下面看看例子： 
+
+
+
+
+
+import java.util.Hashtable; 
+class TestGen0<K,V>{ 
+  public Hashtable<K,V> h=new Hashtable<K,V>(); 
+  public void put(K k, V v) { 
+   h.put(k,v); 
+  } 
+  public V get(K k) { 
+   return h.get(k); 
+  } 
+  public static void main(String args[]){ 
+   TestGen0<String,String> t=new TestGen0<String,String>(); 
+   t.put("key", "value"); 
+   String s=t.get("key"); 
+   System.out.println(s); 
+  } 
+} 
+
+正确输出:value 
+
+  这只是个例子，不过看看是不是创建一个用类型作为参数的类，参数是K，V，传入的“值”是String类型。这个类他没有特定的待处理型别，以前我们定义好了一个类，在输入参数有所固定，是什么型别的有要求，但是现在编写程序，完全可以不制定参数的类型，具体用的时候来确定，增加了程序的通用性，像是一个模板。
+
+3. 泛型通配符
+首先，下面是一个例子，作用是打印出一个集合中的所有元素，我们首先用老版本jdk1.4的编码规则，代码如下： 
+
+void printColleciton(Collection c){ 
+
+iterator i = c.iterator(); 
+
+for (k = 0; k < c.size();k++){ 
+
+System.out.pritnln(i.next(); 
+
+} 
+
+然后，我们用jdk5.0泛型来重写上面这段代码（循环的语法是新版本的语法）： 
+
+void printCollection(Colleciton<Object> c){ 
+
+for(Object e : c){ 
+
+System.out.print(e); 
+
+} 
+
+} 
+
+      这个新版本并不比老版本的好多少，老版本可以用任意一种集合类型作为参数来调用，而新版本仅仅持有Collection<Object>类型，Colleciton<Object>并不是任意类型的Collection的超类。 
+
+    那么什么是所有Colleciton类型的超类型呢？它是Collection<?>这样一个类型，读作“未知Colleciton”。它的意思是说Colleciton的元素类型可以匹配任意类型，我们把它称作通配符类型，我们这样写： 
+
+    void printCollection(Colleciton<?> c){ 
+
+       for (Object e: c){ 
+
+          System.out.println(e); 
+
+        } 
+
+     } 
+
+   现在我们用任意类型的集合来调用它了，需要注意的是内部方法printColleciton(),我们任可以从c中来读出元素，并且这些元素是Object类型，而且是安全的，因为无论集合中是什么类型，它总包括Object，但是将任意对象加到集合中是不安全的： 
+
+     Colleciton<?> c = new ArrayList<String>(); 
+
+     c.add(new Object());//编译时错误 
+
+   由于我们不知道c持有的是什么类型的元素，我们不能加object到集合中去。add()方法用类型E作为参数，（集合的元素类型）当真正的参数类型是？的时候，它代表的是一些未知类型。任何传递给add()方法的参数必须是这个未知类型的子类型。由于我们不知道未知类型，所以我们传递给它任何东西。主要的例外是null,它是每一个类型的成员。 
+
+   另一方面，假定给一个List<?>，我们调用get()并且充分利用结果。结果类型是未知类型。但是我总是知道它是一个Object，因此分配一个从get()取出来的结果到一个object的变量是安全的，或者作为一个参数传递到一个需要object类型的地方。
+
+3.1有限制的通配符 
+
+考虑一个画图的应用程序，这个程序能够画长方形、圆等类型，为了在程序中表示这样的图形，你可以定义一个类型的层次结构： 
+
+
+ 
+
+public abstract class Shape{ 
+
+         public abstract void draw(Canvas c); 
+
+ } 
+
+public class Circle extends Shape{ 
+
+         private int x,y,radius; 
+
+         public void draw(Canvas c){} 
+
+} 
+
+public class Rectangle extends Shape{ 
+
+         private int x,y,width,height; 
+
+         public void draw(Canvas c){ 
+
+} 
+
+} 
+
+//这些类能被画在画布上： 
+
+public class Canvas{ 
+
+       public void draw(Shape s){ 
+
+                s.draw(this); 
+
+       } 
+
+} 
+
+
+ 
+任何画图的动作的都包含一些图形，假设他们被表示在一个list中，在Canvas中它将会有一个很方便的方法来画他们： 
+
+   public void drawAll(List<Shape> shapes){ 
+
+             for(Shape s :shapes){ 
+
+               s.draw(this); 
+
+              } 
+
+   } 
+
+    现在类型规则说，方法drawAll()只能在真正的Shape类型的List上被调用，而它的子类无法调用，例如List<Circle>上被调用。这是很不幸的。由于所有的方法确实从List中读出Shape，所以它仅能在List<Object>上被调用，下面我们改后的代码可以在任意类型的Shape上被调用： 
+
+public void drawAll(List< ? extends Shape>{ } 
+
+这里有一个很小的不同是，我们已经用List<? extends Shape>替换了List<Object>，现在drawAll()方法可以接受任意的Shape的子类了，我们当然可以在List<Circle>上调用。   
+
+   <? extends Class>是一种限制通配符类型，它可以接受所有<Class>以及Class的子类型。然而调用代价是，只读访问，无法向shapes中添加元素。像通常一样，使用通配符带来的灵活性将付出代价，例如，下面是不允许的： 
+
+   public void addRectangle(List<? extends Shape> shapes){ 
+
+     shapes.add(0,new Rectangle());//编译时错误 
+
+   } 
+
+    限制性通配符的一个例子是，是一个人口普查的例子，我们假设数据是由一个名字映射一个人，名字是字符串，人（可以是Person,或是它的子类Driver）,Map<k,v>是一个泛型的例子，它拥有两个参数，表示为一个KEY和value的映射MAP 
+
+   再次注意正规参数的命名规则，K代表key,V代表value 
+
+     public class Census{ 
+
+        public static void addRegistry(Map<String ? extends Person> Registry){ } 
+
+     } 
+
+    Map<String,Driver>  allDrivers =; 
+
+    census.addResigtry(allDrivers); 
+
+
+编写泛型类要注意： 
+   1) 在定义一个泛型类的时候，在 “<>”之间定义形式类型参数，例如：“class TestGen<K,V>”，其中“K” , “V”不代表值，而是表示类型。 
+   2) 实例化泛型对象的时候，一定要在类名后面指定类型参数的值（类型），一共要有两次书写。例如：
+TestGen<String,String> t=new TestGen<String,String>()； 
+   3) 泛型中<K extends Object>,extends并不代表继承，它是类型范围限制。 
+
+4.泛型与数据类型转换
+4.1. 消除类型转换
+  上面的例子大家看到什么了，数据类型转换的代码不见了。在以前我们经常要书写以下代码，如： 
+
+
+ 
+
+import Java.util.Hashtable; 
+class Test { 
+  public static void main(String[] args) { 
+   Hashtable h = new Hashtable(); 
+   h.put("key", "value"); 
+   String s = (String)h.get("key"); 
+   System.out.println(s); 
+  } 
+} 
+
+  这个我们做了类型转换，是不是感觉很烦的，并且强制类型转换会带来潜在的危险，系统可能会抛一个ClassCastException异常信息。在JDK5.0中我们完全可以这么做，如： 
+
+import Java.util.Hashtable; 
+class Test { 
+  public static void main(String[] args) { 
+   Hashtable<String,Integer> h = new Hashtable<String,Integer> (); 
+   h.put("key", new Integer(123)); 
+   int s = h.get("key").intValue(); 
+   System.out.println(s); 
+  } 
+} 
+
+  这里我们使用泛化版本的HashMap,这样就不用我们来编写类型转换的代码了，类型转换的过程交给编译器来处理，是不是很方便，而且很安全。上面是String映射到String，也可以将Integer映射为String，只要写成HashTable<Integer,String> h=new HashTable<Integer,String>();h.get(new Integer(0))返回value。果然很方便。 
+
+4.2 自动解包装与自动包装的功能
+  从上面有没有看到有点别扭啊，h.get(new Integer(123))这里的new Integer(123);好烦的，在JDK5.0之前我们只能忍着了，现在这种问题已经解决了，请看下面这个方法。我们传入一个int这一基本型别，然后再将i的值直接添加到List中，其实List是不能储存基本型别的，List中应该存储对象，这里编译器将int包装成Integer，然后添加到List中去。接着我们用List.get(0);来检索数据，并返回对象再将对象解包装成int。恩，JDK5.0给我们带来更多方便与安全。 
+
+public void autoBoxingUnboxing(int i) { 
+  ArrayList<Integer> L= new ArrayList<Integer>(); 
+  L.add(i); 
+  int a = L.get(0); 
+  System.out.println("The value of i is " + a); 
+} 
+
+4.3 限制泛型中类型参数的范围
+  也许你已经发现在TestGen<K,V>这个泛型类,其中K,V可以是任意的型别。也许你有时候呢想限定一下K和V当然范围，怎么做呢？看看如下的代码： 
+
+class TestGen2<K extents String,V extends Number> 
+{ 
+  private V v=null; 
+  private K k=null; 
+  public void setV(V v){ 
+   this.v=v; 
+  } 
+  public V getV(){ 
+   return this.v; 
+  } 
+  public void setK(K k){ 
+   this.k=k; 
+  } 
+  public V getK(){ 
+   return this.k; 
+  } 
+  public static void main(String[] args) 
+  { 
+   TestGen2<String,Integer> t2=new TestGen2<String,Integer>(); 
+   t2.setK(new String("String")); 
+   t2.setV(new Integer(123)); 
+   System.out.println(t2.getK()); 
+   System.out.println(t2.getV()); 
+  } 
+} 
+
+  上边K的范围是<=String ，V的范围是<=Number，注意是“<=”,对于K可以是String的，V当然也可以是Number，也可以是Integer,Float,Double,Byte等。看看下图也许能直观些请看上图A是上图类中的基类，A1，A2分别是A的子类，A2有2个子类分别是A2_1，A2_2。 
+
+  然后我们定义一个受限的泛型类class MyGen<E extends A2>,这个泛型的范围就是上图中兰色部分。 
+
+  这个是单一的限制，你也可以对型别多重限制，如下： 
+
+class C<T extends Comparable<? super T> & Serializable>
+  我们来分析以下这句，T extends Comparable这个是对上限的限制，Comparable< super T>这个是下限的限制，Serializable是第2个上限。一个指定的类型参数可以具有一个或多个上限。具有多重限制的类型参数可以用于访问它的每个限制的方法和域。 
+
+5.泛型方法 
+
+考虑写一个持有数组类型对象和一个集合对象的方法，把数组里的所有对象都放到 
+
+集合里。第一个程序为： 
+
+  static void fromArrayToColleciton(Object[]a,Collection<?> c){ 
+
+     for (Object o : a){ 
+
+        c.add(o);//编译时错误 
+
+        } 
+
+   } 
+
+到现在为止，你可能学会避免开始的错误而去使用Collection<Object>作为集合参数的类型，你可能会意识到使用Colleciton<?>将不会工作。 
+
+解决这个问题的方法是使用泛型方法，GENERIC METHODS，就像类型声明、方法声明一样，就是被一个或更多的类型参数参数化。 
+
+   static <T> void fromArrayToCollection(T[]a,Collection<T> c){ 
+
+        for(T o :a){ 
+
+             c.add(o);//正确 
+
+            } 
+
+   } 
+
+
+    我们可以用任意类型的集合调用这个方法，他的元素类型是数组元素类型的超类型。 
+
+   Object[] oa = new Object[100]; 
+
+   Collection <Object> co = new ArrayList<Object>(); 
+
+   fromArrayToCollection(oa,co);//T 被认为是Object类型 
+
+   String[] sa = new String[100]; 
+
+   Colleciton<String> cs = new ArrayList<String>(); 
+
+   fromArrayToCollection(sa,cs);//T被认为是String类型 
+
+   fromArrayToCollection(sa,co);//T 被认为是Object类型 
+
+   Integer[] is = new Integer[100]; 
+
+   Float[] fa = new Float[100]; 
+
+   Number[] na = new Number[100]; 
+
+   Collection<Number> cn = new ArrayList<Number>();  
+
+   fromArrayToCollection(is,cn);//Number 
+
+   fromArrayToCollection(fa,cn);//Number 
+
+   fromArrayToCollection(na,cn);//Number 
+
+   fromArrayToCollection(na,co);//Object 
+
+   fromArrayToCollection(na,cs);//编译时错误 
+
+ 
+
+我们不必给一个泛型方法传递一个真正的类型参数,编译器会推断类型参数.一个问题出现了,什么时候使用泛型方法,什么时候使通配符类型,为了回答这些问题,我们从Colleciton库中看一下几个方法： 
+
+
+
+    interface Collection<E>{ 
+
+           public boolean containsAll(Collection<?> c); 
+
+           public boolean addAll(Collection<? extends E> c); 
+
+    } 
+
+    使用泛型方法的形式为： 
+
+    interface Collection<E>{ 
+
+           public <T> boolean containsAll(Collection<T> c); 
+
+           public <T extends E> boolean addAll(Collection<T> c); 
+
+    }  
+
+   无论如何，在ContainAll和addAll中，类型参数T仅被使用一次。返回类型不依赖于类型参数，也不依赖方法中的任何参数。这告诉我类型参数正被用于多态，它的影响仅仅是允许不同的实参在不同的调用点被使用。 
+
+   泛型方法允许类型参数被用于表达在一个或更多参数之间或者方法中的参数、返回类型的依赖。如果没有如此依赖，泛型方法就不能被使用。可能一前一后来联合使用泛型和通配符，这里有个例子： 
+
+    class Collections{ 
+
+      public static <T> void copy(List<T> dest,List<? extends T> src){ 
+
+    } 
+
+ } 
+
+    注意两个参数之间的依赖，任何从原list的对象复制，必须分配一个目标LIST元素的类型T,于是Src的元素类型可能是任何T的子类型。我们不必在意在COPY的表达中，表示依赖使用一个类型参数，但是是使用一个通配符。 
+
+    下面我们不使用通配符来重写上面的方法： 
+
+     class Collections{ 
+
+      public static <T，S extends T> 
+
+      void copy(List<T> dest,List<S> src){ 
+
+    } 
+
+ }  
+
+    这非常好，但是第一个类型参数既在dst中使用，也在第二个类型参数中使用，S本身就被使用了一次。在类型src中,没有什么类型依赖它。这是一个标志我们可以用通配符来替换它。使用通配符比显示的声明类型参数更加清楚和精确。所以有可能推荐使用通配符。 
+
+   通配符也有优势，可以在方法之外来使用，作为字段类型、局部变量和数组。 
+
+这里有一个例子。 
+
+   返回到我们画图的例子，假设我们要保持一个画图请求的历史，我们可以在Shape类内部用一个静态变量来保持历史。用drawAll()存储它到来的参数到历史字段。 
+
+   static List<List<? extends Shape>> history = 
+
+   new ArrayList<List<? extends Shape>>(); 
+
+   public void drawAll(List<? extends Shape> shapes){ 
+
+    history.addLast(shapes); 
+
+    for (Shape s : shapes){ 
+
+           s.draw(this); 
+
+         } 
+
+   }

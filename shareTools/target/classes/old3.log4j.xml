@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="logs.console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="error" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="debug.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_debug.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<param name="Append" value="true"/>  
+		<param name="MaxFileSize" value="1KB"/>
+		<param name="MaxBackupIndex" value="5"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="debug" />
+			<param name="levelMax" value="debug" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="info.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_info.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info" />
+			<param name="levelMax" value="info" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="warn.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_warn.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="warn" />
+			<param name="levelMax" value="warn" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="error.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_error.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="error" />
+			<param name="levelMax" value="error" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="fatal.log.day.file" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="C:/log/test/logs_fatal.log"></param>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="fatal" />
+			<param name="levelMax" value="fatal" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="logsFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="C:/log/test/logs.log" />
+		<param name="maxFileSize" value="1KB" />
+		<param name="maxBackupIndex" value="1" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="【%d{yyyy-MM-dd HH:mm:ss,SSS}】【%p】【%t】 %-5l\n*********************Start*********************\n%m%n*********************End*********************\n" />
+		</layout>
+		
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="debug" />
+			<param name="levelMax" value="fatal" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<logger name="com" additivity="false">
+		<appender-ref ref="logs.console" />
+		<appender-ref ref="logsFile" />
+		<appender-ref ref="debug.log.day.file" />
+		<appender-ref ref="info.log.day.file" />
+		<appender-ref ref="warn.log.day.file" />
+		<appender-ref ref="error.log.day.file" />
+		<appender-ref ref="fatal.log.day.file" />
+	</logger>
+	<logger name="com.pa" additivity="false">
+		<appender-ref ref="logs.console" />
+		<appender-ref ref="logsFile" />
+		<appender-ref ref="debug.log.day.file" />
+		<appender-ref ref="info.log.day.file" />
+		<appender-ref ref="warn.log.day.file" />
+		<appender-ref ref="error.log.day.file" />
+		<appender-ref ref="fatal.log.day.file" />
+	</logger>
+	<root>
+		<level value="debug" />
+	</root>
+</log4j:configuration>

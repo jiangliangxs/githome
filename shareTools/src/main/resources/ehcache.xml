@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" dynamicConfig="false">
+	<!-- <diskStore path="E:/bigfile/services/java/cluster/cache-files/8990/cache2" /> -->
+	<diskStore path="java.io.tmpdir" />
+	<!-- <cacheManagerPeerProviderFactory class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory" properties="peerDiscovery=manual, rmiUrls=//localhost:40002/userCache" /> <cacheManagerPeerListenerFactory class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory" properties="hostName=localhost,port=40001, socketTimeoutMillis=2000" /> -->
+	<defaultCache maxElementsInMemory="10000" eternal="true" timeToIdleSeconds="0" timeToLiveSeconds="0" overflowToDisk="true" diskExpiryThreadIntervalSeconds="0" />
+	<!-- <cache name="userCache" diskPersistent="true" maxElementsInMemory="10000" eternal="true" timeToIdleSeconds="0" timeToLiveSeconds="0" overflowToDisk="true" diskExpiryThreadIntervalSeconds="0"> <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory" properties="replicateAsynchronously=false, replicatePuts=true, replicatePutsViaCopy=true, replicateUpdates=true, replicateUpdatesViaCopy=true, replicateRemovals=true, asynchronousReplicationIntervalMillis=200" /> <bootstrapCacheLoaderFactory class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory" /> </cache> -->
+	<cache name="searchableCache" maxBytesLocalHeap="100M">
+		<searchable keys="false" values="false" />
+	</cache>
+	<cache name="userCache" maxBytesLocalHeap="50M">
+		<searchable>
+			<searchAttribute name="user" class="test.ehcache.query.UserAttributeExtractor" />
+		</searchable>
+	</cache>
+	<cache name="reportHold" maxElementsInMemory="10000" eternal="true" timeToIdleSeconds="0" timeToLiveSeconds="0" overflowToDisk="true" diskPersistent="false" diskExpiryThreadIntervalSeconds="120" />
+</ehcache>

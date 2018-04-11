@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--GenerateCode中属性详解-->
+<!-- 
+	absolutePath:是否绝对路径，[true:是，false:否，默认相对路径(取当前项目根目录)]，值可取真[1、y、yes、true]，其它值为false
+	moduleName:生成代码包模块(必须)
+	srcDirPath:源代码路径，默认当前项目的src目录
+	webRootDirPath:webRoot路径，默认当前项目的WebRoot目录
+	date:生成日期，默认当前时间
+	author：作者，默认系统
+ -->
+<!-- resultMap中的属性详解 -->
+<!-- 
+	tableName:数据库表名(必须)
+	keys:表主键，多个以逗号隔开(必须)
+	entityName:实体类名，默认tableName以_分割取首字母大写
+	description:描述信息
+	jspAddDialog:[true:弹出框，false:页嵌，默认页嵌]，值可取真[1、y、yes、true]，其它值为false
+	???FieldFilter:非主键列进行设置[
+		javaModelFieldFilter="true"
+		jspConfigFieldFilter="true"
+		jspConfigFrozenFieldFilter="true"
+		jspQueryFieldFilter="true"
+		jspAddFieldFilter="true"
+		jspUpdateFieldFilter="true"
+		jspViewFieldFilter="true"
+	][true:反转，false:不反转，默认不反转]，值可取真[1、y、yes、true]，其它值为false
+ -->
+<!-- resultMap.result中的属性详解 -->
+<!-- 
+	column:数据库表中的列名(必须)
+	jdbcType:数据库中表中的列类型(必须)
+	property:java对应的属性名，实体类名，默认column以_分割取各首字母大写;第一个首字母小写
+	javaType:java类型，根据jdbcType来判断类型
+	primaryKey:是否是主键，[true:是，false:否，默认相对路径(取当前项目根目录)]，值可取真[1、y、yes、true]，其它值为false
+	???FieldFilter:非主键列进行设置[
+		javaModelFieldFilter:是否在java的model层不输出此属性，[true:反转，false:不反转，默认不反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+		jspConfigFieldFilter:是否在config.jsp不输出此属性，[true:反转，false:不反转，默认反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+		jspConfigFrozenFieldFilter:是否在config.jsp不输出此属性固定，[true:反转，false:不反转，默认反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+		jspQueryFieldFilter:是否在query.jsp不输出此属性，[true:反转，false:不反转，默认反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+		jspAddFieldFilter:是否在add.jsp不输出此属性，[true:反转，false:不反转，默认反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+		jspUpdateFieldFilter:是否在update.jsp不输出此属性，[true:反转，false:不反转，默认反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+		jspViewFieldFilter:是否在view.jsp不输出此属性，[true:反转，false:不反转，默认反转][true:过虑，false:不过虑，默认输出]，值可取真[1、y、yes、true]，其它值为false
+	]
+ -->
+ <!-- resultMap中的属性生成-->
+ <!--  absolutePath="" date="2015-10-11 12:13:14" author="张军1" -->
+<GenerateCode moduleName="blog" absolutePath="true" srcDirPath="E:\versionManager\sources\java\zj-web\zhangjun\zjweb\src" webRootDirPath="E:\versionManager\sources\java\zj-web\zhangjun\zjweb\WebRoot">
+	<!--  
+	description="测试生成代码管理1",entityName="ZjTestTable1",primaryKey="true"
+	,queryOperator="[字段][
+	100:等于
+	101:大于
+	102:大于等于
+	103:小于
+	104:小于等于
+	105:不等于
+	201:前模糊
+	202:后模糊
+	203:模糊
+	204:非前模糊
+	205:非后模糊
+	206:非模糊
+	301:包含
+	302:不包含
+	][页面值]"(多个用;分割) 
+	-->
+	<resultMap 
+		description="添加新需求" 
+		tableName="auto_zj_blog_article" 
+		entityName="ZhangJunHelloWorld"
+		jspConfigFieldFilter="true"
+		jspConfigFrozenFieldFilter="true"
+		javaModelFieldFilter="true"
+		>
+		<result column="title" 
+			jdbcType="varchar" 
+			comment="标题" 
+			queryOperator="100;101;102;102;103;104;105;201;202;203;204;205;206;301;302"/>
+		<result column="type_id" 
+			jdbcType="varchar" 
+			comment="文章类型" 
+			jspConfigFieldFilter="true"
+			javaModelFieldFilter="true"
+			 />
+		<result column="content" 
+			jdbcType="varchar" 
+			comment="内容" 
+			jspConfigFrozenFieldFilter="true"
+			javaModelFieldFilter="true"
+			 /> 
+		<result column="publish_date" 
+			jdbcType="varchar" 
+			comment="发布日期" 
+			
+			 />
+		<result column="note" 
+			jdbcType="varchar" 
+			comment="备注" 
+			
+			 />
+		<result column="id" 
+			jdbcType="VARCHAR" 
+			primaryKey="true"  
+			
+			 />
+		<result column="IS_DELETE" 
+			jdbcType="CHAR" 
+			
+			 />
+		<result column="CREATED_DATE" 
+			jdbcType="TIMESTAMP" 
+			
+			 />
+		<result column="MODIFIED_USER" 
+			jdbcType="VARCHAR" 
+			
+			 /> 
+		<result column="MODIFIED_DATE" 
+			jdbcType="TIMESTAMP" 
+			
+			 /> 
+		<result column="CREATED_USER" 
+			jdbcType="VARCHAR" 
+			
+			 /> 
+		<result column="CREATED_IP" 
+			jdbcType="VARCHAR" 
+			
+			 /> 
+		<result column="MODIFIED_IP" 
+			jdbcType="VARCHAR" 
+			
+			 />
+	</resultMap>
+</GenerateCode>

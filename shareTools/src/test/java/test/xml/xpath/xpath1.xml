@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenerateCode author="张军" date="2016-02-29 16:32:22:121 星期一 下午" webRootDirPath="E:\versionManager\sources\java\zj-web\ebiz\msth-finance\WebRoot" srcDirPath="E:\versionManager\sources\java\zj-web\ebiz\msth-finance\src" moduleName="forum" absolutePath="true">
+	<resultMap dml="none" physicsDelete="false" jspAddDialog="false" jspConfigFieldViewDetail="true" jspViewDialog="false" jspUpdateDialog="false" jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="true" jspConfigFieldFilter="false" javaModelFieldFilter="false" entityName="TestZhangjun" description="股票信息表" tableName="forum_stock">
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="true" queryOperator="" primaryKey="true" comment="主键" javaType="" property="" jdbcType="VARCHAR" column="ID" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="true" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="203" primaryKey="false" comment="股票代码" javaType="" property="" jdbcType="VARCHAR" column="CODE" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="true" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="203" primaryKey="false" comment="股票名称" javaType="" property="" jdbcType="VARCHAR" column="NAME" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="最新价" javaType="" property="" jdbcType="VARCHAR" column="ZXJ" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="涨跌额" javaType="" property="" jdbcType="VARCHAR" column="ZDE" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="涨跌幅" javaType="" property="" jdbcType="VARCHAR" column="ZDF" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="昨收" javaType="" property="" jdbcType="VARCHAR" column="ZS" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="今开" javaType="" property="" jdbcType="VARCHAR" column="JK" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="最高" javaType="" property="" jdbcType="VARCHAR" column="ZGJ" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="最低" javaType="" property="" jdbcType="VARCHAR" column="ZDJ" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="资金净流入万" javaType="" property="" jdbcType="VARCHAR" column="JLR" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="成交量手" javaType="" property="" jdbcType="VARCHAR" column="CJL" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="成交额万" javaType="" property="" jdbcType="VARCHAR" column="CJE" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="102;104" primaryKey="false" comment="换手率" javaType="" property="" jdbcType="VARCHAR" column="HSL" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="100" primaryKey="false" comment="行业" javaType="" property="" jdbcType="VARCHAR" column="INDUSTRY_NAME" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="true" javaModelFieldFilter="true" queryOperator="" primaryKey="false" comment="创建时间" javaType="" property="" jdbcType="TIMESTAMP" column="CREATED_DATE" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="true" javaModelFieldFilter="true" queryOperator="" primaryKey="false" comment="修改时间" javaType="" property="" jdbcType="TIMESTAMP" column="MODIFIED_DATE" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="true" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="" primaryKey="false" comment="连接网址" javaType="" property="" jdbcType="VARCHAR" column="STOCK_URL" />
+		<result jspViewFieldFilter="false" jspUpdateFieldFilter="false" jspAddFieldFilter="false" jspQueryFieldFilter="false" jspConfigFrozenFieldFilter="false" jspConfigFieldFilter="false" javaModelFieldFilter="false" queryOperator="100" primaryKey="false" comment="抽取日期" javaType="" property="" jdbcType="VARCHAR" column="EXTRACT_DATE" />
+		<a1>
+			<a class="aa" field="bb">1aabb1</a>
+			<a class="aa">ccc</a>
+			<a class="aa" field="bb">1aabb2</a>
+			<a field="bb">bbb</a>
+			<a class="aa" field="bb">1aabb3</a>
+		</a1>
+		<a2>
+			<a class="aa" field="bb">2aabb1</a>
+			<a class="aa">ccc</a>
+			<a class="aa" field="bb">2aabb2</a>
+			<a field="bb">bbb</a>
+			<a class="aa" field="bb">2aabb3</a>
+		</a2>
+		<a3>
+			<a class="aax aa1">
+				<a class="aa" field="bb">3aabb1</a>
+			</a>
+			<a class="aax aa2">
+				<a class="aa">ccc</a>
+			</a>
+			<a class="aax aa" field="bb">3aabb2</a>
+			<a class="aax aa3">
+				<a field="bb">bbb</a>
+			</a>
+			<a class="aax aa4">
+				<a class="aa" field="bb">3aabb3</a>
+			</a>
+		</a3>
+	</resultMap>
+	<div style="WIDTH: 960px" class="panel datagrid" sizcache="1" sizset="0" jquery16103773702537677094="18">
+		<div style="WIDTH: 960px; HEIGHT: 250px" class="datagrid-wrap panel-body panel-body-noheader" title="" sizcache="1" sizset="0" jquery16103773702537677094="19">
+			<div style="WIDTH: 958px; HEIGHT: 248px" class="datagrid-view" sizcache="1" sizset="0">
+				<div style="WIDTH: 26px" class="datagrid-view1">
+					<div style="WIDTH: 26px; HEIGHT: 25px" class="datagrid-header">
+						<div style="DISPLAY: block" class="datagrid-header-inner">
+							<table style="HEIGHT: 25px" class="datagrid-htable" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr class="datagrid-header-row">
+										<td>
+											<div class="datagrid-header-rownumber"></div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div style="MARGIN-TOP: 0px; WIDTH: 26px; HEIGHT: 223px" class="datagrid-body">
+						<div class="datagrid-body-inner" jquery16103773702537677094="33">
+							<table class="datagrid-btable" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-0" class="datagrid-row" datagrid-row-index="0">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">1</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-1" class="datagrid-row" datagrid-row-index="1">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">2</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-2" class="datagrid-row" datagrid-row-index="2">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">3</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-3" class="datagrid-row" datagrid-row-index="3">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">4</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-4" class="datagrid-row" datagrid-row-index="4">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">5</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-5" class="datagrid-row" datagrid-row-index="5">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">6</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-6" class="datagrid-row" datagrid-row-index="6">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">7</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-7" class="datagrid-row" datagrid-row-index="7">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">8</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-8" class="datagrid-row" datagrid-row-index="8">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">9</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-9" class="datagrid-row" datagrid-row-index="9">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">10</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-10" class="datagrid-row" datagrid-row-index="10">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">11</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-11" class="datagrid-row" datagrid-row-index="11">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">12</div>
+										</td>
+									</tr>
+									<tr style="HEIGHT: 25px" id="datagrid-row-r2-1-12" class="datagrid-row" datagrid-row-index="12">
+										<td class="datagrid-td-rownumber">
+											<div class="datagrid-cell-rownumber">13</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div style="WIDTH: 26px" class="datagrid-footer">
+						<div style="DISPLAY: none" class="datagrid-footer-inner"></div>
+					</div>
+				</div>
+				<div style="WIDTH: 932px" class="datagrid-view2">
+					<div style="WIDTH: 932px; HEIGHT: 25px" class="datagrid-header">
+						<div style="DISPLAY: block" class="datagrid-header-inner">
+							<table style="HEIGHT: 25px" class="datagrid-htable" border="0" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr class="datagrid-header-row">
+										<td field="a" jquery16103773702537677094="21">
+											<div style="TEXT-ALIGN: left; WIDTH: 200px" class="datagrid-cell" jquery16103773702537677094="27">
+												<span>银行账号</span>
+												<span class="datagrid-sort-icon">
+												</span>
+											</div>
+										</td>
+										<td field="b" jquery16103773702537677094="22">
+											<div style="TEXT-ALIGN: left; WIDTH: 100px" class="datagrid-cell" jquery16103773702537677094="28">
+												<span>配售对象账户</span>
+												<span class="datagrid-sort-icon">
+												</span>
+											</div>
+										</td>
+										<td field="c" jquery16103773702537677094="23">
+											<div style="TEXT-ALIGN: left; WIDTH: 300px" class="datagrid-cell" jquery16103773702537677094="29">
+												<span>配售对象名称</span>
+												<span class="datagrid-sort-icon">
+												</span>
+											</div>
+										</td>
+										<td field="d" jquery16103773702537677094="24">
+											<div style="TEXT-ALIGN: left; WIDTH: 120px" class="datagrid-cell" jquery16103773702537677094="30">
+												<span>拟申购价格（元）</span>
+												<span class="datagrid-sort-icon">
+												</span>
+											</div>
+										</td>
+										<td field="e" jquery16103773702537677094="25">
+											<div style="TEXT-ALIGN: left; WIDTH: 120px" class="datagrid-cell" jquery16103773702537677094="31">
+												<span>拟申购数量（万股）</span>
+												<span class="datagrid-sort-icon">
+												</span>
+											</div>
+										</td>
+										<td field="f" jquery16103773702537677094="26">
+											<div style="TEXT-ALIGN: left; WIDTH: 100px" class="datagrid-cell" jquery16103773702537677094="32">
+												<span>自愿锁定期（月）</span>
+												<span class="datagrid-sort-icon">
+												</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div style="MARGIN-TOP: 0px; WIDTH: 932px; HEIGHT: 223px" class="datagrid-body" jquery16103773702537677094="34">
+						<table class="datagrid-btable" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-0" class="datagrid-row" datagrid-row-index="0">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">1001190729013958639</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B880648734</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">民生通惠通汇5号资产管理产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-1" class="datagrid-row" datagrid-row-index="1">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">1001190729013958763</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B880648742</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">民生通惠通汇6号资产管理产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-2" class="datagrid-row" datagrid-row-index="2">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">1001190729013958515</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B880648718</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">民生通惠通汇4号资产管理产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-3" class="datagrid-row" datagrid-row-index="3">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">03492300040023546</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B880582611</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">民生通惠民汇1号资产管理产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-4" class="datagrid-row" datagrid-row-index="4">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">121905709010904</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B881364574</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">陆家嘴国泰人寿保险有限责任公司-传统保险产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-5" class="datagrid-row" datagrid-row-index="5">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">121905709010705</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B881364605</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">陆家嘴国泰人寿保险有限责任公司-万能-团险万能</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-6" class="datagrid-row" datagrid-row-index="6">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">121905709010202</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B881364582</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">陆家嘴国泰人寿保险有限责任公司-分红-个险分红</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-7" class="datagrid-row" datagrid-row-index="7">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">11210101040017123</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B882982896</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">天安人寿保险股份有限公司-传统产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-8" class="datagrid-row" datagrid-row-index="8">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">11210101040017131</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B882982901</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">天安人寿保险股份有限公司-万能产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-9" class="datagrid-row" datagrid-row-index="9">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">110902502010903</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B882566153</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">昆仑健康保险股份有限公司—万能保险产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-10" class="datagrid-row" datagrid-row-index="10">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">1001190729023126517</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B881636515</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">民生人寿保险股份有限公司-传统保险产品</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-11" class="datagrid-row" datagrid-row-index="11">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">4000032729200159510</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B883265302</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">民安财产保险有限公司-传统-普通保险产品3</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+								<tr style="HEIGHT: 25px" id="datagrid-row-r2-2-12" class="datagrid-row" datagrid-row-index="12">
+									<td field="a">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-a">11001046500059001161</div>
+									</td>
+									<td field="b">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-b">B883174909</div>
+									</td>
+									<td field="c">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-c">安华农业保险股份有限公司-养殖保险</div>
+									</td>
+									<td field="d">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-d">8.500</div>
+									</td>
+									<td field="e">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-e">3430.0000</div>
+									</td>
+									<td field="f">
+										<div style="HEIGHT: auto" class="datagrid-cell datagrid-cell-c2-f"></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div style="WIDTH: 932px" class="datagrid-footer">
+						<div style="DISPLAY: none" class="datagrid-footer-inner"></div>
+					</div>
+				</div>
+				<table style="DISPLAY: none" id="test" class="easyui-datagrid" data-options="singleSelect:true,collapsible:false,rownumbers:true,url:'/ipo/action?EnquiryPageParamsAction=1&amp;flag=queryPREPARATORY&amp;securitiesId=2543279436361870'" sizcache="1" sizset="0" jquery16103773702537677094="20">
+					<thead sizcache="1" sizset="0">
+						<tr>
+							<th data-options="field:'a',width:'200',halign:'left',align:'left'">银行账号</th>
+							<th data-options="field:'b',width:'100',halign:'left',align:'left'">配售对象账户</th>
+							<th data-options="field:'c',width:'300',halign:'left',align:'left'">配售对象名称</th>
+							<th data-options="field:'d',width:'120',halign:'left',align:'left'">拟申购价格（元）</th>
+							<th data-options="field:'e',width:'120',halign:'left',align:'left'">拟申购数量（万股）</th>
+							<th data-options="field:'f',width:'100',halign:'left',align:'left'">自愿锁定期（月）</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</GenerateCode>

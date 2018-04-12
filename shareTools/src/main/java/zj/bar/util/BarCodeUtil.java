@@ -24,7 +24,7 @@ import zj.io.util.FileUtil;
 /**
  * 2012-06-20
  * 
- * @author 张军
+ * @author 姜亮
  */
 public class BarCodeUtil {
 	/**
